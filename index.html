@@ -2,109 +2,83 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For You ❤️</title>
 
 <style>
 body{
   margin:0;
-  font-family: 'Georgia', serif;
+  font-family:'Georgia', serif;
   color:white;
   overflow:hidden;
+  background:black;
 }
-
-/* الصفحات */
 .page{
-  display:none;
+  position:fixed;
+  top:0;
+  right:0;
+  width:100%;
   height:100vh;
-  padding:30px;
-  animation:fade 1s ease;
+  padding:20px;
   background-size:cover;
   background-position:center;
+  opacity:0;
+  transform:translateX(100%);
+  transition:1s ease;
 }
-.active{ display:block; }
-
-@keyframes fade{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
+.page.active{
+  opacity:1;
+  transform:translateX(0);
 }
-
-/* النص العام */
-h1{
-  font-size:32px;
-  max-width:700px;
-  line-height:1.8;
-  font-weight:300;
-  background:rgba(0,0,0,0.4);
-  padding:15px;
-  border-radius:12px;
-  text-align:center;
+.page.exit{
+  transform:translateX(-100%);
+  opacity:0;
+}
+.text-romantic{
+  width:80%;
+  max-width:600px;
+  font-size:22px;
+  line-height:2;
+  background:rgba(0,0,0,0.5);
+  padding:20px;
+  border-radius:15px;
   margin:auto;
 }
-
-/* النص ف الصفحة 3 */
-.text-romantic{
-  position:absolute;
-  top:30px;
-  left:30px;
-  width:40%;
-  font-size:18px;
-  line-height:1.7;
-  background:rgba(0,0,0,0.4);
-  padding:15px;
-  border-radius:12px;
-  text-align:right;
+.line{
+  opacity:0;
+  transform:translateY(20px) scale(0.95);
+  filter:blur(5px);
+  transition:0.8s ease;
 }
-
-/* الفيديو */
+.line.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  filter:blur(0);
+}
 #p3 video{
-  position:absolute;
-  top:30px;
-  right:30px;
-  width:45%;
+  width:80%;
+  max-width:500px;
   border-radius:15px;
 }
-
-/* الأزرار */
+.buttons{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin-top:20px;
+}
 button{
-  padding:12px 30px;
+  padding:12px 25px;
   font-size:18px;
-  margin:10px;
   border-radius:50px;
   border:1px solid white;
   background:transparent;
   color:white;
   cursor:pointer;
 }
-button:hover{
-  background:white;
-  color:black;
-}
-
-/* أزرار الصفحة 3 */
-.buttons{
-  position:absolute;
-  bottom:30px;
-  left:50%;
-  transform:translateX(-50%);
-}
-
-/* القلوب */
-.heart{
-  position:absolute;
-  color:rgba(255,255,255,0.3);
-  animation:float 6s linear infinite;
-}
-@keyframes float{
-  from{transform:translateY(100vh);}
-  to{transform:translateY(-10vh);}
-}
-
-/* الخلفيات */
 #p1{ background:url("IMAGE1.jpg") center/cover; }
 #p2{ background:url("IMAGE2.jpg") center/cover; }
 #p3{ background:url("IMAGE3.jpg") center/cover; }
 #p4{ background:url("IMAGE4.jpg") center/cover; }
-
 </style>
 </head>
 
@@ -113,23 +87,42 @@ button:hover{
 <audio id="music" loop>
   <source src="music.mp3">
 </audio>
-
 <audio id="music2" loop>
   <source src="music2.mp3">
 </audio>
 
 <!-- الصفحة 1 -->
 <div class="page active" id="p1">
-  <h1>السلام عليكم<br><br>خصصت هذا الشيء لك فقط 🤍</h1>
-  <div style="text-align:center">
+  <div class="text-romantic">
+    <div class="line">السلام عليكم ورحمة الله تعالى وبركاته، أما بعد…</div>
+    <div class="line">أنا أعرف بأن اليوم هو عيد مولدك، ولكن للأسف أنني ليس موجود بقربك جسدياً، أما روحياً فأنت روحي ❤️</div>
+    <div class="line">اليوم فكرت في فكرة كيف أعطيك هدية ولكن تكون غريبة وجميلة جداً…</div>
+    <div class="line">هدية لم تصلك من قبل أبداً، هدية ليس لها مثيل…</div>
+    <div class="line">نعم، الهدية هي هذا الموقع… لأول مرة في حياتي أصنع موقع، وكلها ليك أنت فقط</div>
+    <div class="line">يمكنك أن تبحثي عنه في أي جهاز عبر الرابط الذي أعطيتك إياه الآن…</div>
+    <div class="line">المهم، اضغطي الزر ❤️</div>
+  </div>
+  <div style="text-align:center; margin-top:20px;">
     <button id="startBtn">ابدأ</button>
   </div>
 </div>
 
 <!-- الصفحة 2 -->
 <div class="page" id="p2">
-  <h1>هناك أشياء لا تُقال بسهولة...<br>لكن وجودك جعلها ممكنة</h1>
-  <div style="text-align:center">
+  <div class="text-romantic">
+    <div class="line">السلام عليكِ يا مريم… يا أجمل حاجة وقعت لي 🤍</div>
+    <div class="line">ما لقيتش كلمات توصفك… ولكن قلبي عامر بيك</div>
+    <div class="line">منين عرفتك تبدل كلشي… وولات حياتي ألوان</div>
+    <div class="line">كنفيق ونفكر فيك… وكننعس وأنتِ آخر إحساس</div>
+    <div class="line">مريم… نتي راحة وأمان وشي حاجة ما كتشرحش</div>
+    <div class="line">كنبغيك بطريقة هادئة… ولكن عميقة بزاف</div>
+    <div class="line">وكنتمنا غير نبقى سبب فابتسامتك 🤍</div>
+    <div class="line">مريم…</div>
+    <div class="line">إلى كان عندي أمنية وحدة فهاذ الدنيا…</div>
+    <div class="line">فهي نكون معاك، ماشي غير اليوم…</div>
+    <div class="line">ولكن طول العمر كامل 🤍</div>
+  </div>
+  <div class="buttons">
     <button onclick="go(1)">رجوع</button>
     <button onclick="go(3)">التالي</button>
   </div>
@@ -137,37 +130,41 @@ button:hover{
 
 <!-- الصفحة 3 -->
 <div class="page" id="p3">
-
   <div class="text-romantic">
-    في عيدِكِ يا مريم…<br>
-    تتزيّنُ الحروفُ خجلاً من جمالِكِ<br>
-    ويعجزُ الكلامُ أن يصفَ حُبّي لكِ<br>
-    يا مريم…<br>
-    يا حنونةَ القلبِ، يا دفءَ أيّامي<br>
-    يا من جعلتِ للحياةِ معنى…<br>
-    ولقلبي وطنًا لا يُغادِرُه<br>
-    أحببتُكِ لأنكِ أنتِ…<br>
-    لأن قلبكِ أصفى من كلِّ كلام<br>
-    ولأن حنانكِ حياةٌ تُبعثُ في روحي كلَّ يوم<br>
-    إن ضاقت بي الدنيا… كنتِ الأمان<br>
-    وإن ابتسمتِ… نسيتُ كلَّ ما كان 💖
+    <div class="line">في عيدِكِ يا مريم…</div>
+    <div class="line">تتزيّنُ الحروفُ خجلاً من جمالِكِ</div>
+    <div class="line">ويعجزُ الكلامُ أن يصفَ حُبّي لكِ</div>
+    <div class="line">يا مريم…</div>
+    <div class="line">يا حنونةَ القلبِ، يا دفءَ أيّامي</div>
+    <div class="line">يا من جعلتِ للحياةِ معنى</div>
+    <div class="line">ولقلبي وطنًا لا يُغادِرُه</div>
+    <div class="line">إن ضاقت بي الدنيا… كنتِ أنتِ الأمان</div>
+    <div class="line">وإن ابتسمتِ… نسيتُ كلَّ ما كان 💖</div>
   </div>
-
   <video controls preload="auto" playsinline id="myVideo">
     <source src="Video.mp4" type="video/mp4">
   </video>
-
   <div class="buttons">
     <button onclick="go(2)">رجوع</button>
     <button onclick="go(4)">التالي</button>
   </div>
-
 </div>
 
-<!-- الصفحة 4 -->
+<!-- الصفحة 4 - عيد ميلاد -->
 <div class="page" id="p4">
-  <h1>ببساطة...<br><br>أنا معجب بك 🤍</h1>
-  <div style="text-align:center">
+  <div class="text-romantic">
+    <div class="line">عيد ميلاد سعيد يا مريم 💖</div>
+    <div class="line">اليوم يومك الخاص، واليوم كيتزاد عام جديد فحياتك… عام جديد كله فرص، ضحك، ابتسامات ولحظات لا تُنسى.</div>
+    <div class="line">كنعرف أنني ما نقدرش نكون جنبك جسدياً، ولكن قلبي وروحي معاك ديما… كل لحظة كنفكر فيك، وكل نبضة فقلبي كتذكرك.</div>
+    <div class="line">مريم… نتي ماشي غير صديقة، ولا مجرد شخص عزيز، نتي الحياة ديالي… ضحكتك كتسحرني، كلامك كيهديني، ونظرتك كتخليني نحس بالأمان.</div>
+    <div class="line">كل سنة كتمري فيها، كيزيد قلبي حب ليك ويعرف أكثر على جمال روحك وحنان قلبك.</div>
+    <div class="line">اليوم فكرت كيف نقدر نعبر ليك على كل هاد المشاعر بطريقة مميزة، حاجة مميزة بحالك… ومن هنا جاتني فكرة هاد الموقع، أول مرة نصنع حاجة بحالي هادي، وكلها ليك أنت فقط.</div>
+    <div class="line">هاد الموقع مش غير هدية، هو رسالة من قلبي ليك، هو طريقة باش نقول لك: “كنبغيك، وكنفكر فيك، وانتِ أغلى ما عندي”.</div>
+    <div class="line">مريم، عيد ميلادك اليوم… وأنا كنتمنا ليك كل الخير، كل السعادة، كل الأحلام اللي كتتمناها تتحقق.</div>
+    <div class="line">كل عام وأنتِ ضحكة حياتي، كل عام وأنتِ الأمان والدفء اللي ما يقدر حتى حد يعطيه.</div>
+    <div class="line">عيد ميلاد سعيد، يا أغلى ما عندي… روحي، قلبي، وفرحتي كلها 🤍</div>
+  </div>
+  <div style="text-align:center; margin-top:20px;">
     <button onclick="go(3)">رجوع</button>
   </div>
 </div>
@@ -177,54 +174,73 @@ const pages = document.querySelectorAll(".page");
 const music = document.getElementById("music");
 const music2 = document.getElementById("music2");
 const video = document.getElementById("myVideo");
+let current = 1;
+let animationDone = false;
 
-let started = false;
+function animateText(pageId){
+  let lines = document.querySelectorAll("#"+pageId+" .line");
+  lines.forEach((l,i)=>{
+    l.classList.remove("show");
+    setTimeout(()=> l.classList.add("show"), i*500);
+  });
+  return lines.length * 500;
+}
 
-// preload الفيديو
-video.load();
-
+// زر البداية
 document.getElementById("startBtn").onclick = ()=>{
-  if(!started){
+  if(!animationDone){
     music.play().catch(()=>{});
-    started = true;
+    animateText("p1");
+    animationDone = true;
+  } else {
+    go(2);
   }
-  go(2);
 };
 
 function go(n){
-  pages.forEach(p=>p.classList.remove("active"));
-  document.getElementById("p"+n).classList.add("active");
+  let currentPage = document.getElementById("p"+current);
+  let nextPage = document.getElementById("p"+n);
+  currentPage.classList.add("exit");
 
-  hearts();
+  setTimeout(()=>{
+    pages.forEach(p=>p.classList.remove("active","exit"));
+    nextPage.classList.add("active");
 
-  if(n==3){
+    if(current == 3){
+      video.pause();
+    }
+
+    current = n;
+
+    if(n==2 || n==3 || n==4){
+      animateText("p"+n);
+    }
+
     music.pause();
-    music2.play().catch(()=>{});
+    music.currentTime = 0;
 
-    video.onplay = ()=> music2.pause();
-    video.onpause = ()=> {
-      if(!video.ended) music2.play();
-    };
-    video.onended = ()=> music2.play();
+    if(n==1){ music.play().catch(()=>{}); }
+    if(n>=2){ music2.play().catch(()=>{}); }
 
-  } else if(n==4){
-    music2.play().catch(()=>{});
-  } else {
-    music.play().catch(()=>{});
-    music2.pause();
-  }
+  },500);
 }
 
-function hearts(){
-  for(let i=0;i<6;i++){
-    let h=document.createElement("div");
-    h.className="heart";
-    h.innerHTML="♥";
-    h.style.left=Math.random()*100+"vw";
-    h.style.fontSize=(15+Math.random()*10)+"px";
-    document.body.appendChild(h);
-  }
-}
+// تشغيل الموسيقى 2 بعد انتهاء الفيديو
+video.addEventListener("play", () => { music2.pause(); });
+video.addEventListener("ended", () => { music2.play().catch(()=>{}); });
+
+// مراقبة الصفحة الرابعة لتشغيل الأنيميشن تلقائياً
+const observer = new MutationObserver(mutations => {
+  mutations.forEach(mutation => {
+    mutation.target.querySelectorAll('.page').forEach(node => {
+      if(node.id === "p4" && node.classList.contains("active")){
+        animateText("p4");
+      }
+    });
+  });
+});
+observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ["class"] });
+
 </script>
 
 </body>
