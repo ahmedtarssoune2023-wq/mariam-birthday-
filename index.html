@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Love ❤️</title>
+
+<style>
+
+/* الخلفية */
+body {
+  margin:0;
+  font-family: Arial;
+  color:white;
+  text-align:center;
+  background: url("https://images.unsplash.com/photo-1499382926300-90a93d2a6c0c") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* pages */
+.page {
+  display:none;
+  min-height:100vh;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+/* active */
+.active {
+  display:flex;
+  animation: fade 1s;
+}
+
+@keyframes fade {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
+/* text */
+h1 {
+  font-size:6vw;
+  max-width:90%;
+  text-shadow:2px 2px 10px black;
+}
+
+/* video */
+video {
+  width:90%;
+  max-width:500px;
+  border-radius:20px;
+  margin-bottom:20px;
+}
+
+/* buttons */
+button {
+  padding:15px 25px;
+  font-size:18px;
+  margin:10px;
+  border:none;
+  border-radius:30px;
+  background:#ff1e56;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover {
+  transform:scale(1.1);
+}
+
+/* hearts */
+.heart {
+  position:absolute;
+  color:white;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  from {transform:translateY(100vh);}
+  to {transform:translateY(-10vh);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- music -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+<h1>
+السلام عليكم ورحمة الله وبركاته 💖<br><br>
+قبل ما نبتدأ حلقتنا لليوم...<br>
+أثمنا منكِ أن تذهبي إلى مكان هادئ 🌙<br>
+و أن ترفعي الصوت و الضوء لآخر حد 🔊✨<br>
+و أخيرا أن تمسحي شاشة الهاتف 📱<br><br>
+و شكرا 🌹
+</h1>
+
+<button onclick="start()">إلا درتي هادشي ضغطي هنا ❤️</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+<h1>
+16 فبراير 2026 ❤️<br>
+10:28 ⏰<br><br>
+من داك النهار...<br>
+وانا كنعيش أحسن أيام حياتي 💖
+</h1>
+
+<h1 id="counter"></h1>
+
+<button onclick="go(1)">⬅ السابق</button>
+<button onclick="go(3)">التالي ➡</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+<video controls>
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+<h1>
+يا قمراً أضاء دروبي 🌙<br>
+يا نبضاً يسكن قلبي ❤️<br>
+أحبك حباً لو كتبته ✨<br>
+لملأ الكون نوراً و دفئاً 💖
+</h1>
+
+<button onclick="go(2)">⬅ السابق</button>
+<button onclick="go(4)">التالي ➡</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+<h1>
+كنبغيك بزاف ❤️<br><br>
+و غنبقى ديما معاك 💍<br><br>
+🎂 6 مارس نهار ما يتنساش 🎉
+</h1>
+
+<button onclick="go(3)">⬅ السابق</button>
+</div>
+
+<script>
+
+/* start */
+function start(){
+  go(2);
+
+  let music = document.getElementById("music");
+  music.muted = false;
+  music.play().catch(()=>{});
+}
+
+/* navigation */
+function go(p){
+  document.querySelectorAll(".page").forEach(e=>e.classList.remove("active"));
+  document.getElementById("page"+p).classList.add("active");
+  hearts();
+}
+
+/* counter */
+let startDate = new Date("2026-02-16T10:28:00");
+
+setInterval(()=>{
+  let now = new Date();
+  let diff = now - startDate;
+
+  let d = Math.floor(diff/(1000*60*60*24));
+  let h = Math.floor((diff/(1000*60*60))%24);
+  let m = Math.floor((diff/(1000*60))%60);
+
+  document.getElementById("counter").innerHTML =
+  "دازو " + d + " يوم " + h + " ساعة " + m + " دقيقة ❤️";
+},1000);
+
+/* hearts */
+function hearts(){
+  for(let i=0;i<10;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💖";
+    h.style.left=Math.random()*100+"%";
+    h.style.fontSize=(15+Math.random()*20)+"px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  }
+}
+
+</script>
+
+</body>
+</html>
