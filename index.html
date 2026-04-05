@@ -2,85 +2,72 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Love ❤️</title>
+<title>عيد ميلاد سعيد مريم 🎂</title>
 
 <style>
 
-/* الخلفية */
-body {
-  margin:0;
-  font-family: Arial;
-  color:white;
-  text-align:center;
-  background: url("https://images.unsplash.com/photo-1499382926300-90a93d2a6c0c") no-repeat center center fixed;
-  background-size: cover;
+body{
+margin:0;
+padding:0;
+font-family:Arial;
+text-align:center;
+background:linear-gradient(135deg,#ffe6f0,#ffffff);
+overflow-x:hidden;
 }
 
-/* pages */
-.page {
-  display:none;
-  min-height:100vh;
-  padding:20px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+h1{
+color:#ff2e63;
+font-size:36px;
+margin-top:40px;
 }
 
-/* active */
-.active {
-  display:flex;
-  animation: fade 1s;
+.intro{
+font-size:20px;
+color:#ff2e63;
+margin:20px auto;
+max-width:90%;
+line-height:1.7;
+text-align:right;
 }
 
-@keyframes fade {
-  from {opacity:0;}
-  to {opacity:1;}
+button{
+background:#ff2e63;
+color:white;
+border:none;
+padding:18px 40px;
+font-size:20px;
+border-radius:12px;
+cursor:pointer;
+margin-top:40px;
 }
 
-/* text */
-h1 {
-  font-size:6vw;
-  max-width:90%;
-  text-shadow:2px 2px 10px black;
+#message{
+margin-top:30px;
+font-size:20px;
+color:#ff2e63;
+display:none;
+max-width:90%;
+margin-left:auto;
+margin-right:auto;
+text-align:right;
 }
 
-/* video */
-video {
-  width:90%;
-  max-width:500px;
-  border-radius:20px;
-  margin-bottom:20px;
+#message p{
+margin-bottom:25px;
+line-height:1.7;
+opacity:0;
+transition:opacity 1s;
 }
 
-/* buttons */
-button {
-  padding:15px 25px;
-  font-size:18px;
-  margin:10px;
-  border:none;
-  border-radius:30px;
-  background:#ff1e56;
-  color:white;
-  cursor:pointer;
-  transition:0.3s;
+.firework{
+position:absolute;
+font-size:24px;
+animation:fall 4s linear infinite;
 }
 
-button:hover {
-  transform:scale(1.1);
-}
-
-/* hearts */
-.heart {
-  position:absolute;
-  color:white;
-  animation: float 6s linear infinite;
-}
-
-@keyframes float {
-  from {transform:translateY(100vh);}
-  to {transform:translateY(-10vh);}
+@keyframes fall{
+0%{top:-10%;}
+100%{top:110%;}
 }
 
 </style>
@@ -88,112 +75,130 @@ button:hover {
 
 <body>
 
-<!-- music -->
-<audio id="music" loop>
-  <source src="music.mp3" type="audio/mp3">
-</audio>
+<h1>🎂 عيد ميلاد سعيد مريم 🎂</h1>
 
-<!-- PAGE 1 -->
-<div class="page active" id="page1">
-<h1>
-السلام عليكم ورحمة الله وبركاته 💖<br><br>
-قبل ما نبتدأ حلقتنا لليوم...<br>
-أثمنا منكِ أن تذهبي إلى مكان هادئ 🌙<br>
-و أن ترفعي الصوت و الضوء لآخر حد 🔊✨<br>
-و أخيرا أن تمسحي شاشة الهاتف 📱<br><br>
-و شكرا 🌹
-</h1>
+<div class="intro">
 
-<button onclick="start()">إلا درتي هادشي ضغطي هنا ❤️</button>
+السلام عليكم ورحمة الله تعالى وبركاته، أما بعد  
+أنا أعرف بأن اليوم هو عيد مولدك ولكن للأسف لست موجودًا بقربك جسديًا، أما روحيًا فأنت روحي ❤️  
+اليوم فكرت في فكرة كيف أعطيك هدية، ولكن تكون غريبة وجميلة جدًا، هدية لم تصلك من قبل أبدًا، هدية ليس لها مثيل.  
+نعم، الهدية هي هذا الموقع. لأول مرة في حياتي أصنع موقعًا، وموقع خاص بك فقط. يمكنك أن تبحثي عنه في أي جهاز عبر الرابط الذي أعطيتك إياه.  
+المهم اضغطي الزر.
+
 </div>
 
-<!-- PAGE 2 -->
-<div class="page" id="page2">
-<h1>
-16 فبراير 2026 ❤️<br>
-10:28 ⏰<br><br>
-من داك النهار...<br>
-وانا كنعيش أحسن أيام حياتي 💖
-</h1>
+<button onclick="showMessage()">
+اضغطي هنا لتبدأ المفاجأة 🎁
+</button>
 
-<h1 id="counter"></h1>
 
-<button onclick="go(1)">⬅ السابق</button>
-<button onclick="go(3)">التالي ➡</button>
+<div id="message">
+
+<p>مريم ❤️</p>
+
+<p>
+ربما لم نلتقِ بعد في الواقع، لكنك أصبحت جزءًا من أيامي بطريقة لم أتوقعها.
+أحيانًا يدخل شخص إلى حياتك بهدوء… ثم فجأة تكتشف أنه أصبح شيئًا مهمًا جدًا بالنسبة لك.
+</p>
+
+<p>
+كل مرة أتحدث معك أشعر أنني أتعرف على إنسانة مميزة أكثر.
+ليس فقط لأنك جميلة، بل لأن روحك جميلة أيضًا، وطريقتك في الكلام تجعل القلب يبتسم بدون سبب.
+</p>
+
+<p>
+ربما المسافة بيننا الآن كبيرة، وربما لم يجمعنا مكان واحد بعد…
+لكن بعض الأشخاص لا يحتاجون إلى القرب الجسدي ليكونوا قريبين من القلب.
+</p>
+
+<p>
+اليوم ليس يومًا عاديًا…
+اليوم هو اليوم الذي جاءت فيه إلى هذا العالم فتاة جعلت حياتي أجمل بطريقة بسيطة.
+</p>
+
+<p>
+لهذا أردت أن أعطيك هدية مختلفة قليلًا…
+شيئًا ليس مجرد كلمات في رسالة، بل مكان صغير في الإنترنت مصنوع فقط من أجلك.
+</p>
+
+<p>
+قد لا يكون هذا الموقع شيئًا كبيرًا…
+لكن الفكرة فيه بسيطة:
+أن أريك أنك مميزة بالنسبة لي.
+</p>
+
+<p>
+عيد ميلاد سعيد مريم 🎂  
+أتمنى أن يكون هذا العام مليئًا بالضحك والنجاح وكل الأشياء الجميلة التي تستحقينها.
+</p>
+
+<p>
+وفي النهاية…
+ربما هذا مجرد موقع صغير…
+لكن الشعور الذي بداخله حقيقي.
+</p>
+
+<p>— أحمد ❤️</p>
+
 </div>
 
-<!-- PAGE 3 -->
-<div class="page" id="page3">
-<video controls>
-  <source src="video.mp4" type="video/mp4">
-</video>
 
-<h1>
-يا قمراً أضاء دروبي 🌙<br>
-يا نبضاً يسكن قلبي ❤️<br>
-أحبك حباً لو كتبته ✨<br>
-لملأ الكون نوراً و دفئاً 💖
-</h1>
+<!-- موسيقى يوتيوب مخفية -->
+<iframe id="music"
+width="0"
+height="0"
+src=""
+frameborder="0"
+allow="autoplay">
+</iframe>
 
-<button onclick="go(2)">⬅ السابق</button>
-<button onclick="go(4)">التالي ➡</button>
-</div>
-
-<!-- PAGE 4 -->
-<div class="page" id="page4">
-<h1>
-كنبغيك بزاف ❤️<br><br>
-و غنبقى ديما معاك 💍<br><br>
-🎂 6 مارس نهار ما يتنساش 🎉
-</h1>
-
-<button onclick="go(3)">⬅ السابق</button>
-</div>
 
 <script>
 
-/* start */
-function start(){
-  go(2);
+function createFireworks(){
 
-  let music = document.getElementById("music");
-  music.muted = false;
-  music.play().catch(()=>{});
+for(let i=0;i<50;i++){
+
+let fw=document.createElement('div')
+
+fw.classList.add('firework')
+
+fw.style.left=Math.random()*100+'vw'
+
+fw.style.animationDuration=2+Math.random()*2+'s'
+
+fw.innerText='🎉'
+
+document.body.appendChild(fw)
+
+setTimeout(()=>fw.remove(),4000)
+
 }
 
-/* navigation */
-function go(p){
-  document.querySelectorAll(".page").forEach(e=>e.classList.remove("active"));
-  document.getElementById("page"+p).classList.add("active");
-  hearts();
 }
 
-/* counter */
-let startDate = new Date("2026-02-16T10:28:00");
+function showMessage(){
 
-setInterval(()=>{
-  let now = new Date();
-  let diff = now - startDate;
+document.getElementById("music").src="https://www.youtube.com/embed/B8RrIVVRA7o?autoplay=1"
 
-  let d = Math.floor(diff/(1000*60*60*24));
-  let h = Math.floor((diff/(1000*60*60))%24);
-  let m = Math.floor((diff/(1000*60))%60);
+createFireworks()
 
-  document.getElementById("counter").innerHTML =
-  "دازو " + d + " يوم " + h + " ساعة " + m + " دقيقة ❤️";
-},1000);
+let message=document.getElementById("message")
 
-/* hearts */
-function hearts(){
-  for(let i=0;i<10;i++){
-    let h=document.createElement("div");
-    h.className="heart";
-    h.innerHTML="💖";
-    h.style.left=Math.random()*100+"%";
-    h.style.fontSize=(15+Math.random()*20)+"px";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),6000);
-  }
+message.style.display="block"
+
+let p=message.querySelectorAll("p")
+
+p.forEach((el,i)=>{
+
+setTimeout(()=>{
+
+el.style.opacity=1
+
+},i*900)
+
+})
+
 }
 
 </script>
